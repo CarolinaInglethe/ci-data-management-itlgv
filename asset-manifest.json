@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/ci-data-management-itlgv/static/css/main.abd64e84.css",
+    "main.js": "/ci-data-management-itlgv/static/js/main.a5e1b4ac.js",
+    "index.html": "/ci-data-management-itlgv/index.html",
+    "main.abd64e84.css.map": "/ci-data-management-itlgv/static/css/main.abd64e84.css.map",
+    "main.a5e1b4ac.js.map": "/ci-data-management-itlgv/static/js/main.a5e1b4ac.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.abd64e84.css",
+    "static/js/main.a5e1b4ac.js"
+  ]
+}
