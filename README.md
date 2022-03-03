@@ -6,7 +6,7 @@ Este projeto é um site que apresenta dados , armazena e manipula os dados de um
 
 ## Como rodar o codigo na maquina?
 
-Assim que o projeto estiver em sua maquina você deve :
+Assim que o projeto estiver em sua maquina você deve abrir e  :
 -  instalar dependencias : npm intall
 ( aviso:  instalaçoes e versoes trabalhadas em uma máquina linux ubunto/mint)
 
