@@ -53,3 +53,23 @@
 .ShowData-page button:hover {
   background-color: rgba(76, 0, 130, 0.315);
 }
+
+.NavBar-component {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.NavBar-component a {
+  background-color: rgba(34, 24, 34, 0.849);
+  border: 0px;
+  border-radius: 5px;
+  color: rgba(255, 255, 255, 0.863);
+  font-size: large;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.NavBar-component a:hover {
+  background-color: rgba(0, 0, 0, 0.596);
+}
