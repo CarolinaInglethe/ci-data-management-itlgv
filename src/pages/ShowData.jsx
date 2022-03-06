@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function ShowData() {
   const [csv, setCsv] = useState(null)
@@ -25,37 +26,35 @@ function ShowData() {
 
   return (
     <div className="ShowData-page">
-      <h1>Dados</h1>
 
       {
-          !csv ?  
+        !csv ?  
           <p>Carregando...</p>
         :
         <table>
-      <thead>
-        <tr>
-          {
-            csv.header.map((colum, index) => (
-              <th key={index} >{colum}</th>
-            ))
-          }
-        </tr>
-       </thead>
-       <tbody>
-        {
-          csv.data.map((obj, index) => (
-          <tr key={index}>
+          <thead>
+            <tr>
+              {
+                csv.header.map((colum, index) => (
+                  <th key={index} >{colum}</th>
+                ))
+              }
+            </tr>
+          </thead>
+          <tbody>
             {
-              obj.map((info) => (
-                <td>{info}</td>
+              csv.data.map((obj, index) => (
+              <tr key={index}>
+                {
+                  obj.map((info) => (
+                    <td>{info}</td>
+                  ))
+                }
+                <td><button type="button">Editar</button></td>
+                <td><button type="button">Remover</button></td>
+              </tr>
               ))
             }
-            <td><button type="button">Editar</button></td>
-            <td><button type="button">Remover</button></td>
-          </tr>
-          ))
-        }
-        
       </tbody>
      </table>
       }
