@@ -5,7 +5,11 @@ function Home() {
   return (
     <div className="Home-page">
       <h1>Olá Seja Bem vindo(a) !</h1>
-      <Link to="/ShowData">Veja</Link>
+      <p>
+        Aqui você poderá vizualizar dados de uma tabela excel 
+        podendo, adicionar , editar e excluir dados de uma maneira mais simples
+      </p>
+      <Link to="/ShowData">Vamos lá</Link>
     </div>
   );
 }
