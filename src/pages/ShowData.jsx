@@ -25,7 +25,7 @@ function ShowData() {
 
   return (
     <div className="ShowData-page">
-      <h1>Pagina de dados</h1>
+      <h1>Dados</h1>
 
       {
           !csv ?  
