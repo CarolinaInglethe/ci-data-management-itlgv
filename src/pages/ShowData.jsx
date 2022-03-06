@@ -8,28 +8,31 @@ function ShowData() {
       header: [],
       data: [],
     };
-
     const [header, ...content] = text.split('\n');
-
     result.header = header.split(',');  
     content.forEach((item) => {
         result.data.push(item.split(','));
     })
-
     return result;
   }
 
   useEffect(() => {
-      fetch('/peopleInformation.csv')
+      fetch('peopleInformation.csv')
       .then((res) => res.text())
-      .then((text) => setCsv(parseCSV(text)) );
+      .then((text) => setCsv(parseCSV(text)) )
+      .catch(() => console.log("Erro no fetch"))
   }, []);
 
   return (
     <div className="ShowData-page">
       <h1>Pagina de dados</h1>
-      <table>
-     <thead>
+
+      {
+          !csv ?  
+          <p>Carregando...</p>
+        :
+        <table>
+      <thead>
         <tr>
           {
             csv.header.map((colum, index) => (
@@ -37,26 +40,25 @@ function ShowData() {
             ))
           }
         </tr>
-      </thead>
-      <tbody>
+       </thead>
+       <tbody>
         {
-          !csv ?  
-          <p>Carregando...</p>
-        :
           csv.data.map((obj, index) => (
           <tr key={index}>
-            <td>{obj.name}</td>
-            <td>{obj.flight_number}</td>
-            <td>{Date(obj.date_utc)}</td>
-            <td>{obj.rocket}</td>
-            <button type="button">Editar</button>
-            <button type="button">Remover</button>
+            {
+              obj.map((info) => (
+                <td>{info}</td>
+              ))
+            }
+            <td><button type="button">Editar</button></td>
+            <td><button type="button">Remover</button></td>
           </tr>
           ))
         }
         
       </tbody>
      </table>
+      }
     </div>
   );
 }
