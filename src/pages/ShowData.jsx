@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import NavBar from '../components/NavBar';
 
 function ShowData() {
   const [csv, setCsv] = useState(null)
@@ -26,7 +27,7 @@ function ShowData() {
 
   return (
     <div className="ShowData-page">
-
+      <NavBar />
       {
         !csv ?  
           <p>Carregando...</p>
