@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import ShowData from './pages/ShowData';
 import CreateData from './pages/CreateData';
 import InfoProvider from './context/infoProvider';
+import UpdateData from './pages/UpdateData';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
             <Route path="/" element={ <Home /> } />
             <Route path="/ShowData" element={ <ShowData /> } />
             <Route path="/CreateData" element={ <CreateData /> } />
+            <Route path="/UpdateData" element={ <UpdateData />} />
           </Routes>
         </InfoProvider>
       </BrowserRouter>

@@ -1,9 +1,11 @@
 import React, { useContext, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import NavBar from '../components/NavBar';
 import InfoContext from '../context/infoContext';
 
 function ShowData() {
   const {csv, setCsv} = useContext(InfoContext);
+  const navigate = useNavigate();
 
   const parseCSV = (text) => {
     const result = {
@@ -24,6 +26,10 @@ function ShowData() {
       .then((text) => setCsv(parseCSV(text)) )
       .catch(() => console.log("Erro no fetch"))
   }, []);
+
+  const handleClickUpdate = () => {
+    navigate('/UpdateData');
+  }
 
   const handleClickDelete = ({ target: { name } }) => {
     const newData = csv.data.filter((rw) => rw[1] !== name);
@@ -62,7 +68,7 @@ function ShowData() {
                         <td>{col}</td>
                       ))
                     }
-                    <td><button type="button">Editar</button></td>
+                    <td><button type="button" onClick={ handleClickUpdate }>Editar</button></td>
                     <td><button type="button" name={row[1]} onClick={handleClickDelete}>Remover</button></td>
                   </tr>
               ))
