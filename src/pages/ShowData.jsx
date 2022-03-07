@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import NavBar from '../components/NavBar';
+import InfoContext from '../context/infoContext';
 
 function ShowData() {
-  const [csv, setCsv] = useState(null)
+  const {csv, setCsv} = useContext(InfoContext);
 
   const parseCSV = (text) => {
     const result = {
@@ -10,7 +11,7 @@ function ShowData() {
       data: [],
     };
     const [header, ...content] = text.split('\n');
-    result.header = header.split(',');  
+    result.header = header.split(','); 
     content.forEach((item) => {
         result.data.push(item.split(','));
     })
@@ -24,6 +25,15 @@ function ShowData() {
       .catch(() => console.log("Erro no fetch"))
   }, []);
 
+  const handleClickDelete = ({ target: { name } }) => {
+    const newData = csv.data.filter((rw) => rw[1] !== name);
+    setCsv({
+      ...csv,
+      "data": newData
+    });
+  }
+
+
   return (
     <div className="ShowData-page">
       <NavBar />
@@ -35,24 +45,26 @@ function ShowData() {
           <thead>
             <tr>
               {
-                csv.header.map((colum, index) => (
-                  <th key={index} >{colum}</th>
-                ))
+                !csv.header ? <p>Carregando...</p>
+                : csv.header.map((colum, index) => (
+                    <th key={index} >{colum}</th>
+                  ))
               }
             </tr>
           </thead>
           <tbody>
             {
-              csv.data.map((obj, index) => (
-              <tr key={index}>
-                {
-                  obj.map((info) => (
-                    <td>{info}</td>
-                  ))
-                }
-                <td><button type="button">Editar</button></td>
-                <td><button type="button">Remover</button></td>
-              </tr>
+              !csv.data ? <p>Carregando...</p>
+              : csv.data.map((row, index) => (
+                  <tr key={index}>
+                    {
+                      row.map((col) => (
+                        <td>{col}</td>
+                      ))
+                    }
+                    <td><button type="button">Editar</button></td>
+                    <td><button type="button" name={row[1]} onClick={handleClickDelete}>Remover</button></td>
+                  </tr>
               ))
             }
       </tbody>
