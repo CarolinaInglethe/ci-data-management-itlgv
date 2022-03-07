@@ -7,6 +7,12 @@ function CreateData() {
     <NavBar />
       <h1>Cadastro de novos dados</h1>
       <p>Em manutençao...</p>
+      <form>
+        <input type="text" placeholder="insira um Id"/>
+        <input type="text"  placeholder="Insira um nome"/>
+        <input type="text"  placeholder="insira um telefone"/>
+        <button> Salvar </button>
+      </form>
     </div>
   );
 }
