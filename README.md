@@ -2,7 +2,7 @@
 
 ## O que o Projeto faz ?
 
-Este projeto é um site que apresenta dados , armazena e manipula os dados de um arquivo csv
+Este projeto é um site que apresenta dados , armazena e manipula os dados de um arquivo csv .
 
 ## Como rodar o codigo na maquina?
 
