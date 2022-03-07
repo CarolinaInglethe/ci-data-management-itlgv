@@ -17,6 +17,7 @@ function ShowData() {
     content.forEach((item) => {
         result.data.push(item.split(','));
     })
+    console.log(result)
     return result;
   }
 

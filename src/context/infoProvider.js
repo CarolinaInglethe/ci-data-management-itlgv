@@ -3,12 +3,15 @@ import PropTypes from 'prop-types';
 import InfoContext from './infoContext';
 
 function InfoProvider({ children }) {
-    const [csv, setCsv] = useState(null)
+    const [csv, setCsv] = useState(null);
+    const [inputsValues, setInputValues] = useState([]) 
 
 
   const contextValues = {
     csv,
     setCsv,
+    inputsValues,
+    setInputValues
   };
 
   return (
