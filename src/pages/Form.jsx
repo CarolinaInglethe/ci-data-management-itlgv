@@ -3,7 +3,7 @@ import NavBar from '../components/NavBar';
 import InfoContext from '../context/infoContext';
 import { useNavigate } from 'react-router-dom';
 
-function CreateData() {
+function Form() {
   /*
   const { csv, setCsv } = useContext(InfoContext);
   const [ nameInput, setNameInput ] = useState('');
@@ -23,9 +23,8 @@ function CreateData() {
   */
 
   return (
-    <div className="CreateData-page">
+    <div className="Form-page">
     <NavBar />
-      <h1>Cadastro de novos dados</h1> 
       <p>Em manutençao...</p>
       {/*
        <form>
@@ -57,4 +56,4 @@ function CreateData() {
   );
 }
 
-export default CreateData;
+export default Form;

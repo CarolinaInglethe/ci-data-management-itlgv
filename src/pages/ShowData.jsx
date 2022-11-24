@@ -33,7 +33,7 @@ function ShowData() {
   }, []);
 
   const handleClickUpdate = () => {
-    navigate('/UpdateData');
+    navigate('/Form');
   }
 
   const handleClickDelete = ({ target: { name } }) => {
