@@ -2,9 +2,8 @@ import './css/App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import ShowData from './pages/ShowData';
-import CreateData from './pages/CreateData';
+import Form from './pages/Form';
 import InfoProvider from './context/infoProvider';
-import UpdateData from './pages/UpdateData';
 
 function App() {
   return (
@@ -14,8 +13,7 @@ function App() {
           <Routes>
             <Route path="/" element={ <Home /> } />
             <Route path="/ShowData" element={ <ShowData /> } />
-            <Route path="/CreateData" element={ <CreateData /> } />
-            <Route path="/UpdateData" element={ <UpdateData />} />
+            <Route path="/Form" element={ <Form /> } />
           </Routes>
         </InfoProvider>
       </BrowserRouter>

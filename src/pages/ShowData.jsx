@@ -8,28 +8,32 @@ function ShowData() {
   const navigate = useNavigate();
 
   const parseCSV = (text) => {
+    // separo o cabeçalho dos dados
     const result = {
       header: [],
       data: [],
     };
-    const [header, ...content] = text.split('\n');
-    result.header = header.split(','); 
-    content.forEach((item) => {
+
+    const [headerText, ...contentText] = text.split('\n'); // separo onde tem paragrafo e isolo o header
+    result.header = headerText.split(','); // separo elementos e salvo no header como array
+
+    contentText.forEach((item) => {
         result.data.push(item.split(','));
     })
+
     console.log(result)
     return result;
   }
 
   useEffect(() => {
-      fetch('peopleInformation.csv')
+      fetch('dataBooks.csv')
       .then((res) => res.text())
       .then((text) => setCsv(parseCSV(text)) )
       .catch(() => console.log("Erro no fetch"))
   }, []);
 
   const handleClickUpdate = () => {
-    navigate('/UpdateData');
+    navigate('/Form');
   }
 
   const handleClickDelete = ({ target: { name } }) => {
